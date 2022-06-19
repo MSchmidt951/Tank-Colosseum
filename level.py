@@ -53,8 +53,8 @@ class Level:
         self.round = 0
 
         #Get mode settings
-        if path.exists('modes.json'):
-            with open('modes.json') as f:
+        if path.exists('Config\\modes.json'):
+            with open('Config\\modes.json') as f:
                 allModes = json.load(f)
                 #Use the default settings as a base for the custom settings
                 self.customSettings = dict(allModes['default'])
@@ -62,7 +62,7 @@ class Level:
                 for key in allModes[mode]:
                     self.customSettings[key] = allModes[mode][key]
         else:
-            print('ERROR: modes.json not found!')
+            print('ERROR: Config\\modes.json not found!')
             exit()
 
         #FPS setup

@@ -43,7 +43,7 @@ Coming soon
 
 ### Adding or editing modes
 
-This can be done in modes.json.
+This can be done in `Config\modes.json`.
 
 Edit the values in this file to change modes.  
 To add a new mode add an item with the key being the mode name. Any item within the mode will change the default.  
