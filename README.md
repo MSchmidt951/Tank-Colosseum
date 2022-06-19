@@ -61,20 +61,20 @@ This file can be used to set per level settings. This is normally used to set sp
 
 ### Editing bullet characteristics
 
-Bullet configuration is found in the Bullet class in bullet.py.
+Bullet configuration is found in `Config\bullets.json`
 
 Bullet characteristics
 - `speed` : The speed of the bullet, uses the same scale as the tank movement
-- `rotSpeed` : The rotation speed of the bullet, uses the same scale as the tank rotation
-- `ctrlRot` : Whether the user controls the rotation of the bullet or tank when shooting
-- `ctrlMov` : Whether the user controls the movement of the bullet or tank when shooting
-- `ctrlShoot` : Whether the shooting button is used by the the bullet or tank
+- `rotationSpeed` : The rotation speed of the bullet, uses the same scale as the tank rotation
+- `controlRotation` : Whether the user controls the rotation of the bullet or tank when shooting
+- `controlMovement` : Whether the user controls the movement of the bullet or tank when shooting
+- `controlShoot` : Whether the shooting button is used by the the bullet or tank
 - `damage` : The damage of the bullet
 - `collide` : Whether the bullet collides with the walls
 - `shotDelay` : The time between shots with the current powerup
 - `autoMove` : Whether the bullet automatically moves
 - `lifetime` : The time before the bullet is despawned
-- `blockMov` : Whether the tank movement is blocked when the bullet is spawned in
+- `blockTankMovement` : Whether the tank movement is blocked when the bullet is spawned in
 
 To edit the powerup ammunition, change the value of the ammo variable at the bottom of bullet.py.
 

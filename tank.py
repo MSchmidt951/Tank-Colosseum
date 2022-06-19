@@ -29,6 +29,7 @@ class Tank(Sprite):
         self.canShoot = True
         self.nextShot = None
         self.inControl = True
+        self.normalShotDelay = sprites.level.bulletConfig['normal']['shotDelay']
         self.update()
 
     def update(self):
@@ -120,8 +121,8 @@ class Tank(Sprite):
                 if self.ammo == 0:
                     self.turret = 'normal'
                     self.ammo = -1
-                    if self.nextShot - self.sprites.level.FPS.currentTime() < bullet.Bullet.configs['normal'][7] * 1.2:
-                        self.nextShot = self.sprites.level.FPS.currentTime() + bullet.Bullet.configs['normal'][7] * 1.2
+                    if self.nextShot - self.sprites.level.FPS.currentTime() < self.normalShotDelay * 1.2:
+                        self.nextShot = self.sprites.level.FPS.currentTime() + self.normalShotDelay * 1.2
             else:
                 self.bullets[self.bulletShoot].shoot()
 

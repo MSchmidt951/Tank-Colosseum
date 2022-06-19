@@ -3,18 +3,6 @@ from random import randint
 from sprite import Sprite
 
 class Bullet(Sprite):
-    configs = {
-        'normal' :  (2,   0,   False, False, False, 40, True,  0.6,  True,  15, False),
-        'RC' :      (1.7, 2.2, True,  False, True,  75, True,  1,    True,  10, True),
-        'Drone' :   (1.4, 2.8, True,  True,  True,  10, False, 0.4,  False, 8,  True),
-        'B_Drone' : (2,   0,   False, False, False, 30, True,  1,    True,  10, False),
-        'Mine' :    (0,   0,   False, False, False, 90, True,  0.3,  True,  30, False),
-        'Ghost' :   (3,   0,   False, False, False, 70, False, 0.5,  True,  20, False),
-        'Minigun' : (2.5, 0,   False, False, False, 15, True,  0.06, True,  8,  False),
-        'Sniper' :  (5,   0,   False, False, False, 80, True,  2,    True,  10, False),
-        'Shotgun' : (2,   0,   False, False, False, 30, True,  0,    True,  12, False)
-    } #Order of configs - 0:speed, 1:rotSpeed, 2:ctrlRot, 3:ctrlMov, 4:ctrlShoot, 5:damage, 6:collide, 7:shotDelay, 8:autoMove, 9:lifetime, 10:blockMov
-
     def __init__(self, tank, ID, sprites):
         self.center = None
         super().__init__('Bullets\\'+tank.power, sprites)
@@ -26,21 +14,24 @@ class Bullet(Sprite):
         self.tank = tank
         tank.canShoot = False
         
-        self.setConfig(Bullet.configs[self.type])
+        self.setConfig()
 
-    def setConfig(self, config):
+    def setConfig(self):
+        #Get the bullet config of the current type
+        config = self.sprites.level.bulletConfig[self.type]
+        
         #Set the configuration of the bullet according to which class it is
-        self.speed = config[0] * self.sprites.level.settings['bSpeedMultiplier']
-        self.rotSpeed = config[1] * self.sprites.level.settings['bSpeedMultiplier']
-        self.ctrlRot = config[2]
-        self.ctrlMov = config[3]
-        self.ctrlShoot = config[4]
-        self.damage = config[5]
-        self.collide = config[6]
-        self.shotDelay = config[7]
-        self.autoMove = config[8]
-        self.lifetime = self.sprites.level.FPS.currentTime() + config[9]
-        self.blockMov = config[10]
+        self.speed = config['speed'] * self.sprites.level.settings['bSpeedMultiplier']
+        self.rotSpeed = config['rotationSpeed'] * self.sprites.level.settings['bSpeedMultiplier']
+        self.ctrlRot = config['controlRotation']
+        self.ctrlMov = config['controlMovement']
+        self.ctrlShoot = config['controlShoot']
+        self.damage = config['damage']
+        self.collide = config['collide']
+        self.shotDelay = config['shotDelay']
+        self.autoMove = config['autoMove']
+        self.lifetime = self.sprites.level.FPS.currentTime() + config['lifetime']
+        self.blockMov = config['blockTankMovement']
 
         #Set the state of the tank
         if self.ctrlRot:

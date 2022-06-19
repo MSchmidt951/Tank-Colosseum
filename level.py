@@ -65,6 +65,14 @@ class Level:
             print('ERROR: Config\\modes.json not found!')
             exit()
 
+        #Get bullet configuration
+        if path.exists('Config\\bullets.json'):
+            with open('Config\\bullets.json') as f:
+                self.bulletConfig = json.load(f)
+        else:
+            print('ERROR: Config\\bullets.json not found!')
+            exit()
+
         #FPS setup
         self.FPS = FPS_Handler(self.customSettings['maxFPS'])
 

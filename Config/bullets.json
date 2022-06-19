@@ -1,0 +1,127 @@
+{
+	"normal" : {
+		"speed" : 2,
+		"rotationSpeed" : 0,
+		"controlRotation" : false,
+		"controlMovement" : false,
+		"controlShoot" : false,
+		"damage" : 40,
+		"collide" : true,
+		"shotDelay" : 0.6,
+		"autoMove" : true,
+		"lifetime" : 15,
+		"blockTankMovement" : false
+	},
+	
+	"RC" : {
+		"speed" : 1.7,
+		"rotationSpeed" : 2.2,
+		"controlRotation" : true,
+		"controlMovement" : false,
+		"controlShoot" : true,
+		"damage" : 75,
+		"collide" : true,
+		"shotDelay" : 1,
+		"autoMove" : true,
+		"lifetime" : 10,
+		"blockTankMovement" : true
+	},
+	
+	"Drone" : {
+		"speed" : 1.4,
+		"rotationSpeed" : 2.8,
+		"controlRotation" : true,
+		"controlMovement" : true,
+		"controlShoot" : true,
+		"damage" : 10,
+		"collide" : false,
+		"shotDelay" : 0.4,
+		"autoMove" : false,
+		"lifetime" : 8,
+		"blockTankMovement" : true
+	},
+	
+	"B_Drone" : {
+		"speed" : 2,
+		"rotationSpeed" : 0,
+		"controlRotation" : false,
+		"controlMovement" : false,
+		"controlShoot" : false,
+		"damage" : 30,
+		"collide" : true,
+		"shotDelay" : 1,
+		"autoMove" : true,
+		"lifetime" : 10,
+		"blockTankMovement" : false
+	},
+	
+	"Mine" : {
+		"speed" : 0,
+		"rotationSpeed" : 0,
+		"controlRotation" : false,
+		"controlMovement" : false,
+		"controlShoot" : false,
+		"damage" : 90,
+		"collide" : true,
+		"shotDelay" : 0.3,
+		"autoMove" : true,
+		"lifetime" : 30,
+		"blockTankMovement" : false
+	},
+	
+	"Ghost" : {
+		"speed" : 3,
+		"rotationSpeed" : 0,
+		"controlRotation" : false,
+		"controlMovement" : false,
+		"controlShoot" : false,
+		"damage" : 70,
+		"collide" : false,
+		"shotDelay" : 0.5,
+		"autoMove" : true,
+		"lifetime" : 20,
+		"blockTankMovement" : false
+	},
+	
+	"Minigun" : {
+		"speed" : 2.5,
+		"rotationSpeed" : 0,
+		"controlRotation" : false,
+		"controlMovement" : false,
+		"controlShoot" : false,
+		"damage" : 15,
+		"collide" : true,
+		"shotDelay" : 0.06,
+		"autoMove" : true,
+		"lifetime" : 8,
+		"blockTankMovement" : false
+	},
+	
+	"Sniper" : {
+		"speed" : 5,
+		"rotationSpeed" : 0,
+		"controlRotation" : false,
+		"controlMovement" : false,
+		"controlShoot" : false,
+		"damage" : 80,
+		"collide" : true,
+		"shotDelay" : 2,
+		"autoMove" : true,
+		"lifetime" : 10,
+		"blockTankMovement" : false
+	},
+	
+	"Shotgun" : {
+		"speed" : 2,
+		"rotationSpeed" : 0,
+		"controlRotation" : false,
+		"controlMovement" : false,
+		"controlShoot" : false,
+		"damage" : 30,
+		"collide" : true,
+		"shotDelay" : 0,
+		"autoMove" : true,
+		"lifetime" : 12,
+		"blockTankMovement" : false
+	}
+}
