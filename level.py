@@ -151,14 +151,14 @@ class Level:
         r = self.image.get_rect()
         self.center = (center[0]-r.center[0], center[1]-r.center[1])
 
-    def firstRound(self, sprites, playerCount):
+    def firstRound(self, sprites):
         #Save settings
         self.sprites = sprites
         self.playerCount = self.settings['playerCount']
-        self.activeTanks = self.settings['playerCount']
+        self.activeTanks = self.playerCount
         #Spawn tanks
         shuffle(self.settings['spawnPoints'])
-        for i in range(playerCount):
+        for i in range(self.playerCount):
             sprites.add(Tank(i, self.settings['spawnPoints'][i], sprites), 'tanks', True)
 
     def newRound(self):

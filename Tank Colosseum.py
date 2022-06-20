@@ -6,9 +6,6 @@ from level import Level, tankCols
 from sprite import SpriteHandler
 from powerup import Powerup
 
-###Settings
-playerCount = 4 #2-4 players
-
 ###Init
 pygame.init()
 
@@ -17,7 +14,7 @@ imgPath = getcwd()+'\\Images\\'
 
 currLvl = Level(screen, imgPath)
 sprites = SpriteHandler(screen, currLvl, imgPath)
-currLvl.firstRound(sprites, playerCount)
+currLvl.firstRound(sprites)
 
 ###Main loop
 run = True
