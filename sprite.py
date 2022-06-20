@@ -63,6 +63,8 @@ class Sprite:
         self.sprites = sprites
         self.timesCollided = 0
         self.dead = False
+        self.rot = 0
+        self.pos = {'x':0, 'y':0}
 
     def update(self):
         #Draw sprite on the screen with the correct position and rotation

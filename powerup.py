@@ -24,7 +24,6 @@ class Powerup(Sprite):
     def __init__(self, power, pos, sprites):
         super().__init__('Powerups\\'+power, sprites)
         self.pos = pos
-        self.rot = 0
         self.power = power
         self.ammo = bullet.ammo[power] * sprites.level.settings['ammoMultiplier']
         self.update()

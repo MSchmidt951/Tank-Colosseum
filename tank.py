@@ -15,7 +15,6 @@ class Tank(Sprite):
         super().__init__('Tanks\\tank'+str(i), sprites)
         self.index = i
         self.points = 0
-        self.rot = 0.0
         self.pos = {'x':pos[0], 'y':pos[1]}
         self.power = 'normal'
         self.bullets = {}
