@@ -10,7 +10,6 @@ class Tank(Sprite):
         ['j', 'l', 'i', 'k', 'u'],
         ['Keypad 4', 'Keypad 6', 'Keypad 8', 'Keypad 5', 'Keypad 7']
     ]
-    maxBullets = 4
 
     def __init__(self, i, pos, sprites):
         super().__init__('Tanks\\tank'+str(i), sprites)
