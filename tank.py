@@ -39,12 +39,14 @@ class Tank(Sprite):
             #Check if the tank can shoot
             if not self.canShoot and self.nextShot <= self.sprites.level.FPS.currentTime():
                 self.canShoot = True
-            #Update bullets
-            for key in list(self.bullets):
-                self.bullets[key].update()
             #Check for death
             if self.hp <= 0:
                 self.die()
+
+        #Update bullets
+        for key in list(self.bullets):
+            if key in self.bullets:
+                self.bullets[key].update()
 
     def getKeyCode(self, i):
         return pygame.key.key_code(Tank.controls[self.index][i])
@@ -104,23 +106,24 @@ class Tank(Sprite):
     def shoot(self):
         if self.canShoot:
             if self.bulletShoot == -1:
-                if self.ammo >= 1:
-                    self.ammo -= 1
-                    #Shoot with a powerup
-                    self.addBullet(bullet.classes[self.power])
-                    #Shoot all shotgun shells at once
-                    if self.ammo > 0 and self.power == 'Shotgun':
-                        self.canShoot = True
-                        self.shoot()
-                elif self.ammo == -1 and len(self.bullets) < self.sprites.level.settings['maxBullets']:
-                    #Shoot with a normal turret
-                    self.addBullet(bullet.Bullet)
-                #Reset powerup if the ammo has ran out
-                if self.ammo == 0:
-                    self.turret = 'normal'
-                    self.ammo = -1
-                    if self.nextShot - self.sprites.level.FPS.currentTime() < self.normalShotDelay * 1.2:
-                        self.nextShot = self.sprites.level.FPS.currentTime() + self.normalShotDelay * 1.2
+                if not self.dead:
+                    if self.ammo >= 1:
+                        self.ammo -= 1
+                        #Shoot with a powerup
+                        self.addBullet(bullet.classes[self.power])
+                        #Shoot all shotgun shells at once
+                        if self.ammo > 0 and self.power == 'Shotgun':
+                            self.canShoot = True
+                            self.shoot()
+                    elif self.ammo == -1 and len(self.bullets) < self.sprites.level.settings['maxBullets']:
+                        #Shoot with a normal turret
+                        self.addBullet(bullet.Bullet)
+                    #Reset powerup if the ammo has ran out
+                    if self.ammo == 0:
+                        self.turret = 'normal'
+                        self.ammo = -1
+                        if self.nextShot - self.sprites.level.FPS.currentTime() < self.normalShotDelay * 1.2:
+                            self.nextShot = self.sprites.level.FPS.currentTime() + self.normalShotDelay * 1.2
             else:
                 self.bullets[self.bulletShoot].shoot()
 

@@ -51,6 +51,7 @@ class Level:
         self.imgPath = imgPath
         self.cols = ['red', 'blue', 'green', 'yellow']
         self.round = 0
+        self.newRoundTimerSet = False
 
         #Get mode settings
         if path.exists('Config\\modes.json'):
@@ -86,7 +87,10 @@ class Level:
         pygame.display.flip()
         self.FPS.tick()
         #Check for a new round
-        if self.activeTanks <= 1:
+        if self.activeTanks <= 1 and not self.newRoundTimerSet:
+            self.newRoundTimerSet = True
+            self.newRoundTimer = self.FPS.currentTime()
+        if (self.newRoundTimerSet and self.newRoundTimer+2 < self.FPS.currentTime()) or self.activeTanks == 0:
             self.newRound()
 
         #Draw level
@@ -166,6 +170,7 @@ class Level:
         if self.settings['rndMap']:
             newLvl = choice(self.getAllLevels())
             self.setupLvl(newLvl)
+        self.newRoundTimerSet = False
         #Output scores
         self.screen.fill(self.bgCol)
         self.writeScores()
