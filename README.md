@@ -88,8 +88,8 @@ To edit the powerup ammunition, change the value of the ammo variable at the bot
 
 #### Config
 
-- Add a new item to Bullet.configs where the key is the name of the powerup.  
-- Add a new item to the classes and ammo variables (found at the bottom of bullet.py). Use the same string as in the config for the key.  
+- Add a new object to `Config\bullets.json` where the name is the name of the powerup. The object must contain the same members as the other objects.  
+- Add a new item to the classes and ammo variables (found at the bottom of bullet.py). Use the same string used in `Config\bullets.json`.  
 
 #### Images
 
@@ -97,4 +97,4 @@ To edit the powerup ammunition, change the value of the ammo variable at the bot
 - Add a png file inside `Images\Powerup` with the file name the same as the name of the powerup.
   - The image should be 17x17 pixels big, use `Images\Powerup\blank.png` as a base.  
 - Add four png files inside `Images\Turrets` with the files name the same as the name of the powerup followed by a number.
-  - The number should be 0-3 where 0 is for the red tank, 1 for the blue, 2 for the green and 3 for the yellow.
+  - The number must be 0-3 where 0 is for the red tank, 1 for the blue, 2 for the green and 3 for the yellow.
